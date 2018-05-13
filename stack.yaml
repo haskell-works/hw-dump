@@ -1,0 +1,11 @@
+resolver: nightly-2018-03-20
+
+packages:
+- '.'
+
+extra-deps:
+- hw-hspec-hedgehog-0.1.0.4
+
+flags: {}
+
+extra-package-dbs: []
