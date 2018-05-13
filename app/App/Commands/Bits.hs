@@ -70,13 +70,13 @@ optsBits = BitsOptions
   <$> strOption
         (   long "file"
         <>  help "Source file"
-        <>  metavar "INT"
+        <>  metavar "FILE"
         )
   <*> many
       ( strOption
         (   long "bit-file"
-        <>  help "Target"
-        <>  metavar "INT"
+        <>  help "Bit file"
+        <>  metavar "FILE"
         )
       )
 

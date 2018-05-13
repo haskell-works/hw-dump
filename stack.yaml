@@ -5,6 +5,7 @@ packages:
 
 extra-deps:
 - hw-hspec-hedgehog-0.1.0.4
+- hw-prim-0.5.0.3
 
 flags: {}
 
