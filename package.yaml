@@ -12,11 +12,11 @@ homepage: http://github.com/haskell-works/hw-dump#readme
 extra-source-files:
 - README.md
 dependencies:
-- base >=4 && <5
-- hw-bits >=0.7.0.2
-- hw-int >=0.0.0.1
-- hw-prim >=0.4.0.3
-- hw-string-parse >=0.0.0.1
+- base              >= 4          && < 5
+- hw-bits           >= 0.7.0.2
+- hw-int            >= 0.0.0.1
+- hw-prim           >= 0.4.0.3
+- hw-string-parse   >= 0.0.0.1
 - vector
 
 library:
@@ -83,7 +83,7 @@ benchmarks:
     dependencies:
     - criterion
     - hw-dump
-    - hw-prim >=0.4.0.0
+    - hw-prim >= 0.4.0.0
     when:
     - condition: flag(sse42)
       then:
