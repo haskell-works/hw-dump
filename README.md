@@ -1,4 +1,5 @@
-# hw-bits
-[![CircleCI](https://circleci.com/gh/haskell-works/hw-bits/tree/0-branch.svg?style=svg)](https://circleci.com/gh/haskell-works/hw-bits/tree/0-branch)
+# hw-dump
 
-Facilities for manipulating bits.
+[![CircleCI](https://circleci.com/gh/haskell-works/hw-dump.svg?style=svg)](https://circleci.com/gh/haskell-works/hw-dump)
+
+Facilities for dump bits in files.
