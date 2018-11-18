@@ -10,4 +10,5 @@ import App.Commands.Options.Type
 import Control.Lens
 
 makeFields ''BitsOptions
+makeFields ''SelectedByBitsOptions
 makeFields ''WordsOptions

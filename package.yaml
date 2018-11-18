@@ -15,7 +15,7 @@ dependencies:
 - base              >= 4          && < 5
 - bytestring
 - hw-bits           >= 0.7.0.3
-- hw-prim           >= 0.6.2.15
+- hw-prim           >= 0.6.2.19
 - vector
 
 library:
