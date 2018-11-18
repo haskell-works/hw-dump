@@ -13,6 +13,7 @@ extra-source-files:
 - README.md
 dependencies:
 - base              >= 4          && < 5
+- bits-extra
 - bytestring
 - hw-bits           >= 0.7.0.3
 - hw-prim           >= 0.6.2.19

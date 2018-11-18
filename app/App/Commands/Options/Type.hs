@@ -10,6 +10,12 @@ data SelectedByBitsOptions = SelectedByBitsOptions
   , _selectedByBitsOptionsBitFile :: FilePath
   } deriving (Eq, Show)
 
+data SliceOptions = SliceOptions
+  { _sliceOptionsFile      :: FilePath
+  , _sliceOptionsWordSize  :: Int
+  , _sliceOptionsWordIndex :: Int
+  } deriving (Eq, Show)
+
 data WordsOptions = WordsOptions
   { _wordsOptionsFile     :: FilePath
   , _wordsOptionsWordSize :: Int
