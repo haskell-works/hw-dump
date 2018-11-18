@@ -13,10 +13,9 @@ extra-source-files:
 - README.md
 dependencies:
 - base              >= 4          && < 5
-- hw-bits           >= 0.7.0.2
-- hw-int            >= 0.0.0.1
-- hw-prim           >= 0.4.0.3
-- hw-string-parse   >= 0.0.0.1
+- bytestring
+- hw-bits           >= 0.7.0.3
+- hw-prim           >= 0.6.2.15
 - vector
 
 library:
@@ -24,7 +23,6 @@ library:
   exposed-modules:
   - HaskellWorks.Data.Dump
   dependencies:
-  - bytestring
   - safe
   when:
   - condition: flag(sse42)
@@ -53,7 +51,6 @@ executables:
     - -Wredundant-constraints
     - -O2
     dependencies:
-    - bytestring
     - hw-dump
     - lens
     - optparse-applicative
@@ -68,12 +65,10 @@ tests:
     - -with-rtsopts=-N
     - -Wall
     dependencies:
-    - bytestring
     - hedgehog
     - hspec
     - hw-dump
     - hw-hspec-hedgehog
-    - hw-prim >=0.4.0.3
     - QuickCheck
 
 benchmarks:
@@ -83,7 +78,6 @@ benchmarks:
     dependencies:
     - criterion
     - hw-dump
-    - hw-prim >= 0.4.0.0
     when:
     - condition: flag(sse42)
       then:
