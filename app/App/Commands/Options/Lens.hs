@@ -11,4 +11,5 @@ import Control.Lens
 
 makeFields ''BitsOptions
 makeFields ''SelectedByBitsOptions
+makeFields ''SliceOptions
 makeFields ''WordsOptions
