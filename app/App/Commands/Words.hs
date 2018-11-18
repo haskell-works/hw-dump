@@ -17,6 +17,8 @@ import qualified Data.Vector.Storable                as DVS
 import qualified HaskellWorks.Data.FromForeignRegion as IO
 import qualified System.IO                           as IO
 
+{-# ANN module ("HLint: ignore Redundant do"  :: String) #-}
+
 printWords64 :: DVS.Vector Word64 -> IO ()
 printWords64 v = do
   forM_ [0 .. DVS.length v - 1] $ \i -> do

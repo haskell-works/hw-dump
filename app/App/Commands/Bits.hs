@@ -19,7 +19,7 @@ import qualified Data.ByteString.Lazy       as LBS
 import qualified Data.ByteString.Lazy.Char8 as C8
 import qualified System.IO                  as IO
 
-{-# ANN module ("HLint: Ignore Redundant do" :: String) #-}
+{-# ANN module ("HLint: ignore Redundant do"  :: String) #-}
 
 lazyByteStringChunks :: Int -> LBS.ByteString -> [LBS.ByteString]
 lazyByteStringChunks n bs = case LBS.splitAt (fromIntegral n) bs of
