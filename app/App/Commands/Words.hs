@@ -1,18 +1,20 @@
+{-# LANGUAGE DataKinds           #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeApplications    #-}
 
 module App.Commands.Words
   ( cmdWords
   ) where
 
-import App.Commands.Options.Type
 import Control.Lens
 import Control.Monad
+import Data.Generics.Product.Any
 import Data.Semigroup            ((<>))
 import Data.Word
 import Numeric                   (showHex)
 import Options.Applicative       hiding (columns)
 
-import qualified App.Commands.Options.Lens           as L
+import qualified App.Commands.Options.Type           as Z
 import qualified Data.Vector.Storable                as DVS
 import qualified HaskellWorks.Data.FromForeignRegion as IO
 import qualified System.IO                           as IO
@@ -33,10 +35,10 @@ printWords64 v = do
 
   return ()
 
-runWords :: WordsOptions -> IO ()
+runWords :: Z.WordsOptions -> IO ()
 runWords opts = do
-  let file      = opts ^. L.file
-  let wordSize  = opts^. L.wordSize
+  let file      = opts ^. the @"file"
+  let wordSize  = opts ^. the @"wordSize"
 
   case wordSize of
     64 -> IO.mmapFromForeignRegion file >>= printWords64
@@ -44,8 +46,8 @@ runWords opts = do
 
   return ()
 
-optsWords :: Parser WordsOptions
-optsWords = WordsOptions
+optsWords :: Parser Z.WordsOptions
+optsWords = Z.WordsOptions
   <$> strOption
         (   long "file"
         <>  help "Source file"
