@@ -1,22 +1,27 @@
+{-# LANGUAGE DeriveGeneric         #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+
 module App.Commands.Options.Type where
 
+import GHC.Generics
+
 data BitsOptions = BitsOptions
-  { _bitsOptionsFile     :: FilePath
-  , _bitsOptionsBitFiles :: [FilePath]
-  } deriving (Eq, Show)
+  { file     :: FilePath
+  , bitFiles :: [FilePath]
+  } deriving (Eq, Show, Generic)
 
 data SelectedByBitsOptions = SelectedByBitsOptions
-  { _selectedByBitsOptionsFile    :: FilePath
-  , _selectedByBitsOptionsBitFile :: FilePath
-  } deriving (Eq, Show)
+  { file    :: FilePath
+  , bitFile :: FilePath
+  } deriving (Eq, Show, Generic)
 
 data SliceOptions = SliceOptions
-  { _sliceOptionsFile      :: FilePath
-  , _sliceOptionsWordSize  :: Int
-  , _sliceOptionsWordIndex :: Int
-  } deriving (Eq, Show)
+  { file      :: FilePath
+  , wordSize  :: Int
+  , wordIndex :: Int
+  } deriving (Eq, Show, Generic)
 
 data WordsOptions = WordsOptions
-  { _wordsOptionsFile     :: FilePath
-  , _wordsOptionsWordSize :: Int
-  } deriving (Eq, Show)
+  { file     :: FilePath
+  , wordSize :: Int
+  } deriving (Eq, Show, Generic)

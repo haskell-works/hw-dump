@@ -1,19 +1,21 @@
+{-# LANGUAGE DataKinds           #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeApplications    #-}
 
 module App.Commands.SelectedByBits
   ( cmdSelectedByBits
   ) where
 
-import App.Commands.Options.Type
 import Control.Lens
 import Control.Monad
 import Data.Bits                      (countTrailingZeros)
+import Data.Generics.Product.Any
 import Data.Semigroup                 ((<>))
 import Data.Word
 import HaskellWorks.Data.Bits.BitWise
 import Options.Applicative            hiding (columns)
 
-import qualified App.Commands.Options.Lens           as L
+import qualified App.Commands.Options.Type           as Z
 import qualified Data.ByteString                     as BS
 import qualified Data.ByteString.Builder             as B
 import qualified Data.ByteString.Lazy                as LBS
@@ -34,10 +36,10 @@ selectedBytes as bs = go (DVS.head (DVS.asVector64 bs)) mempty
             go (w .&. (0xfffffffffffffffe .<. fromIntegral i)) (b <> B.word8 (BS.unsafeIndex as i))
           else b
 
-runSelectedByBits :: SelectedByBitsOptions -> IO ()
+runSelectedByBits :: Z.SelectedByBitsOptions -> IO ()
 runSelectedByBits opts = do
-  let file    = opts ^. L.file
-  let bitFile = opts ^. L.bitFile
+  let file    = opts ^. the @"file"
+  let bitFile = opts ^. the @"bitFile"
 
   chunkedContents    <- LBS.toChunks . LBS.rechunkPadded 64 <$> LBS.readFile file
   chunkedBitContents <- LBS.toChunks . LBS.rechunkPadded 8  <$> LBS.readFile bitFile
@@ -47,8 +49,8 @@ runSelectedByBits opts = do
 
   return ()
 
-optsSelectedByBits :: Parser SelectedByBitsOptions
-optsSelectedByBits = SelectedByBitsOptions
+optsSelectedByBits :: Parser Z.SelectedByBitsOptions
+optsSelectedByBits = Z.SelectedByBitsOptions
   <$> strOption
       (   long "file"
       <>  help "Source file"

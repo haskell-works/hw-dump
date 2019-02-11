@@ -1,20 +1,22 @@
+{-# LANGUAGE DataKinds           #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeApplications    #-}
 
 module App.Commands.Bits
   ( cmdBits
   ) where
 
-import App.Commands.Options.Type
 import Control.Lens
 import Control.Monad
 import Data.Char                      (isAscii, isPrint)
+import Data.Generics.Product.Any
 import Data.List                      (transpose)
 import Data.Semigroup                 ((<>))
 import HaskellWorks.Data.Bits.BitShow
 import Numeric                        (showHex)
 import Options.Applicative            hiding (columns)
 
-import qualified App.Commands.Options.Lens  as L
+import qualified App.Commands.Options.Type  as Z
 import qualified Data.ByteString.Lazy       as LBS
 import qualified Data.ByteString.Lazy.Char8 as C8
 import qualified System.IO                  as IO
@@ -41,10 +43,10 @@ isAsciiPrintable c = isPrint c && isAscii c
 maskNonAsciiPrintable :: Char -> Char
 maskNonAsciiPrintable c = if isAsciiPrintable c then c else '.'
 
-runBits :: BitsOptions -> IO ()
+runBits :: Z.BitsOptions -> IO ()
 runBits opts = do
-  let file      = opts ^. L.file
-  let bitFiles  = opts^. L.bitFiles
+  let file      = opts ^. the @"file"
+  let bitFiles  = opts ^. the @"bitFiles"
 
   chunkedContents    <- lazyByteStringChunks 64 <$> LBS.readFile file
   chunkedBitContents <- forM bitFiles $ (lazyByteStringChunks 8 <$>) . LBS.readFile
@@ -68,8 +70,8 @@ runBits opts = do
 
   return ()
 
-optsBits :: Parser BitsOptions
-optsBits = BitsOptions
+optsBits :: Parser Z.BitsOptions
+optsBits = Z.BitsOptions
   <$> strOption
         (   long "file"
         <>  help "Source file"

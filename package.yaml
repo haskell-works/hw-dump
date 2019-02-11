@@ -52,6 +52,7 @@ executables:
     - -Wredundant-constraints
     - -O2
     dependencies:
+    - generic-lens
     - hw-dump
     - lens
     - optparse-applicative
