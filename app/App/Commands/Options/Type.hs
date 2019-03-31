@@ -10,6 +10,11 @@ data BitsOptions = BitsOptions
   , bitFiles :: [FilePath]
   } deriving (Eq, Show, Generic)
 
+data ComplementOptions = ComplementOptions
+  { inputFile  :: FilePath
+  , outputFile :: FilePath
+  } deriving (Eq, Show, Generic)
+
 data SelectedByBitsOptions = SelectedByBitsOptions
   { file    :: FilePath
   , bitFile :: FilePath
