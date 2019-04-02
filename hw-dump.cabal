@@ -58,6 +58,7 @@ executable hw-dump
   other-modules:
       App.Commands
       App.Commands.Bits
+      App.Commands.Complement
       App.Commands.Options.Type
       App.Commands.SelectedByBits
       App.Commands.Slice
