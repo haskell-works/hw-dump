@@ -1,1 +1,2 @@
-module HaskellWorks.Data.Dump where
+module HaskellWorks.Data.Dump
+  () where
