@@ -2,8 +2,8 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeApplications    #-}
 
-module App.Commands.Bits
-  ( cmdBits
+module App.Commands.InterestBits
+  ( cmdInterestBits
   ) where
 
 import Control.Lens
@@ -43,8 +43,8 @@ isAsciiPrintable c = isPrint c && isAscii c
 maskNonAsciiPrintable :: Char -> Char
 maskNonAsciiPrintable c = if isAsciiPrintable c then c else '.'
 
-runBits :: Z.BitsOptions -> IO ()
-runBits opts = do
+runInterestBits :: Z.InterestBitsOptions -> IO ()
+runInterestBits opts = do
   let file      = opts ^. the @"file"
   let bitFiles  = opts ^. the @"bitFiles"
 
@@ -70,8 +70,8 @@ runBits opts = do
 
   return ()
 
-optsBits :: Parser Z.BitsOptions
-optsBits = Z.BitsOptions
+optsInterestBits :: Parser Z.InterestBitsOptions
+optsInterestBits = Z.InterestBitsOptions
   <$> strOption
         (   long "file"
         <>  help "Source file"
@@ -85,5 +85,5 @@ optsBits = Z.BitsOptions
         )
       )
 
-cmdBits :: Mod CommandFields (IO ())
-cmdBits = command "bits"  $ flip info idm $ runBits <$> optsBits
+cmdInterestBits :: Mod CommandFields (IO ())
+cmdInterestBits = command "interest-bits"  $ flip info idm $ runInterestBits <$> optsInterestBits
