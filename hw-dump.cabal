@@ -78,6 +78,7 @@ executable hw-dump
   ghc-options:      -threaded -rtsopts -with-rtsopts=-N
   other-modules:
     App.Commands
+    App.Commands.Bits
     App.Commands.Complement
     App.Commands.InterestBits
     App.Commands.Options.Type
