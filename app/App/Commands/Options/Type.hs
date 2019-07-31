@@ -5,7 +5,7 @@ module App.Commands.Options.Type where
 
 import GHC.Generics
 
-data BitsOptions = BitsOptions
+data InterestBitsOptions = InterestBitsOptions
   { file     :: FilePath
   , bitFiles :: [FilePath]
   } deriving (Eq, Show, Generic)

@@ -36,7 +36,6 @@ common generic-lens         { build-depends: generic-lens                       
 common hedgehog             { build-depends: hedgehog                                       }
 common hspec                { build-depends: hspec                                          }
 common hw-bits              { build-depends: hw-bits              >= 0.7.0.3                }
-common hw-dump              { build-depends: hw-dump                                        }
 common hw-hspec-hedgehog    { build-depends: hw-hspec-hedgehog                              }
 common hw-prim              { build-depends: hw-prim              >= 0.6.2.19               }
 common lens                 { build-depends: lens                                           }
@@ -79,8 +78,8 @@ executable hw-dump
   ghc-options:      -threaded -rtsopts -with-rtsopts=-N
   other-modules:
     App.Commands
-    App.Commands.Bits
     App.Commands.Complement
+    App.Commands.InterestBits
     App.Commands.Options.Type
     App.Commands.SelectedByBits
     App.Commands.Slice
@@ -102,6 +101,7 @@ test-suite hw-dump-test
   main-is:          Spec.hs
   hs-source-dirs:   test
   ghc-options:      -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-tools:      hspec-discover
   other-modules:
       HaskellWorks.Data.Dump.DumpSpec
       Paths_hw_dump
