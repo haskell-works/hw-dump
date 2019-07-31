@@ -4,15 +4,21 @@
 module App.Commands.Options.Type where
 
 import GHC.Generics
+import HaskellWorks.Data.Positioning
 
-data InterestBitsOptions = InterestBitsOptions
+data BitsOptions = BitsOptions
   { file     :: FilePath
-  , bitFiles :: [FilePath]
+  , wordBits :: Count
   } deriving (Eq, Show, Generic)
 
 data ComplementOptions = ComplementOptions
   { inputFile  :: FilePath
   , outputFile :: FilePath
+  } deriving (Eq, Show, Generic)
+
+data InterestBitsOptions = InterestBitsOptions
+  { file     :: FilePath
+  , bitFiles :: [FilePath]
   } deriving (Eq, Show, Generic)
 
 data SelectedByBitsOptions = SelectedByBitsOptions
