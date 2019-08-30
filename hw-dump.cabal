@@ -44,8 +44,8 @@ common safe                 { build-depends: safe                               
 common vector               { build-depends: vector                                         }
 
 common config
-  default-language:   Haskell2010
-  ghc-options:        -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  default-language:     Haskell2010
+  ghc-options:          -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   if flag(sse42)
     ghc-options: -msse4.2
 
@@ -59,9 +59,9 @@ library
           , vector
   exposed-modules:
     HaskellWorks.Data.Dump
-  other-modules:      Paths_hw_dump
-  autogen-modules:    Paths_hw_dump
-  hs-source-dirs:     src
+  other-modules:        Paths_hw_dump
+  autogen-modules:      Paths_hw_dump
+  hs-source-dirs:       src
 
 executable hw-dump
   import:   base, config
@@ -73,9 +73,9 @@ executable hw-dump
           , lens
           , optparse-applicative
           , vector
-  main-is:          Main.hs
-  hs-source-dirs:   app
-  ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+  main-is:              Main.hs
+  hs-source-dirs:       app
+  ghc-options:          -threaded -rtsopts -with-rtsopts=-N
   other-modules:
     App.Commands
     App.Commands.Bits
@@ -98,11 +98,11 @@ test-suite hw-dump-test
           , hw-hspec-hedgehog
           , hw-prim
           , vector
-  type:             exitcode-stdio-1.0
-  main-is:          Spec.hs
-  hs-source-dirs:   test
-  ghc-options:      -threaded -rtsopts -with-rtsopts=-N -Wall
-  build-tools:      hspec-discover
+  type:                 exitcode-stdio-1.0
+  main-is:              Spec.hs
+  hs-source-dirs:       test
+  ghc-options:          -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-tool-depends:   hspec-discover:hspec-discover
   other-modules:
       HaskellWorks.Data.Dump.DumpSpec
       Paths_hw_dump
@@ -115,8 +115,8 @@ benchmark bench
           , hw-bits
           , hw-prim
           , vector
-  type:             exitcode-stdio-1.0
-  main-is:          Main.hs
-  other-modules:    Paths_hw_dump
-  hs-source-dirs:   bench
+  type:                 exitcode-stdio-1.0
+  main-is:              Main.hs
+  other-modules:        Paths_hw_dump
+  hs-source-dirs:       bench
   build-depends:
