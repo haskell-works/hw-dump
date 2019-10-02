@@ -28,7 +28,7 @@ flag sse42
 
 common base                 { build-depends: base                 >= 4          && < 5      }
 
-common QuickCheck           { build-depends: QuickCheck                                     }
+common QuickCheck           { build-depends: QuickCheck           >= 2.10       && < 2.14   }
 common bits-extra           { build-depends: bits-extra                                     }
 common bytestring           { build-depends: bytestring                                     }
 common criterion            { build-depends: criterion                                      }
