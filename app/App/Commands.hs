@@ -6,7 +6,6 @@ import App.Commands.InterestBits
 import App.Commands.SelectedByBits
 import App.Commands.Slice
 import App.Commands.Words
-import Data.Semigroup              ((<>))
 import Options.Applicative
 
 cmdOpts :: Parser (IO ())

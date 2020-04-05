@@ -10,7 +10,6 @@ import Control.Lens
 import Control.Monad
 import Data.Bits.Pext
 import Data.Generics.Product.Any
-import Data.Semigroup                      ((<>))
 import Data.Word
 import HaskellWorks.Data.Vector.AsVector64
 import Options.Applicative                 hiding (columns)

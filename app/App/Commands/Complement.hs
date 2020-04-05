@@ -8,7 +8,6 @@ module App.Commands.Complement
 
 import Control.Lens
 import Data.Generics.Product.Any
-import Data.Semigroup                 ((<>))
 import HaskellWorks.Data.Bits.BitWise
 import Options.Applicative            hiding (columns)
 

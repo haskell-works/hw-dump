@@ -9,7 +9,6 @@ module App.Commands.Words
 import Control.Lens
 import Control.Monad
 import Data.Generics.Product.Any
-import Data.Semigroup            ((<>))
 import Data.Word
 import Numeric                   (showHex)
 import Options.Applicative       hiding (columns)

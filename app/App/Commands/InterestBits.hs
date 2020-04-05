@@ -11,7 +11,6 @@ import Control.Monad
 import Data.Char                      (isAscii, isPrint)
 import Data.Generics.Product.Any
 import Data.List                      (transpose)
-import Data.Semigroup                 ((<>))
 import HaskellWorks.Data.Bits.BitShow
 import Numeric                        (showHex)
 import Options.Applicative            hiding (columns)
