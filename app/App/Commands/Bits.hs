@@ -8,7 +8,6 @@ module App.Commands.Bits
 
 import Control.Lens
 import Data.Generics.Product.Any
-import Data.Semigroup                 ((<>))
 import HaskellWorks.Data.Bits.BitShow
 import HaskellWorks.Data.Positioning
 import Options.Applicative            hiding (columns)

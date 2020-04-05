@@ -10,7 +10,6 @@ import Control.Lens
 import Control.Monad
 import Data.Bits                      (countTrailingZeros)
 import Data.Generics.Product.Any
-import Data.Semigroup                 ((<>))
 import Data.Word
 import HaskellWorks.Data.Bits.BitWise
 import Options.Applicative            hiding (columns)
