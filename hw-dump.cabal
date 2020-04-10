@@ -1,21 +1,21 @@
 cabal-version: 2.2
 
-name:                 hw-dump
-version:              0.1.0.1
-synopsis:             File Dump
-description:          Please see README.md
-category:             Data, Bit
-stability:            Experimental
-homepage:             http://github.com/haskell-works/hw-dump#readme
-bug-reports:          https://github.com/haskell-works/hw-dump/issues
-author:               John Ky
-maintainer:           newhoggy@gmail.com
-copyright:            2016-2020 John Ky
-license:              BSD-3-Clause
-license-file:         LICENSE
-tested-with:          GHC == 8.8.3, GHC == 8.6.5, GHC == 8.4.4
-build-type:           Simple
-extra-source-files:   README.md
+name:                   hw-dump
+version:                0.1.0.1
+synopsis:               File Dump
+description:            Please see README.md
+category:               Data, Bit
+stability:              Experimental
+homepage:               http://github.com/haskell-works/hw-dump#readme
+bug-reports:            https://github.com/haskell-works/hw-dump/issues
+author:                 John Ky
+maintainer:             newhoggy@gmail.com
+copyright:              2016-2020 John Ky
+license:                BSD-3-Clause
+license-file:           LICENSE
+tested-with:            GHC == 8.10.1, GHC == 8.8.3, GHC == 8.6.5, GHC == 8.4.4
+build-type:             Simple
+extra-source-files:     README.md
 
 source-repository head
   type: git
