@@ -13,6 +13,7 @@ import HaskellWorks.Data.Positioning
 import Options.Applicative            hiding (columns)
 
 import qualified App.Commands.Options.Type as Z
+import qualified App.IO                    as IO
 import qualified Data.ByteString.Lazy      as LBS
 import qualified Options.Applicative       as O
 import qualified System.IO                 as IO
@@ -38,7 +39,7 @@ runBits opts = do
   let file      = opts ^. the @"file"
   let wordBits  = opts ^. the @"wordBits"
 
-  chunkedContents <- lazyByteStringChunks 64 <$> LBS.readFile file
+  chunkedContents <- lazyByteStringChunks 64 <$> IO.readInputFile file
 
   let xs :: String = foldl (.) id (fmap bitShows chunkedContents) ""
 
