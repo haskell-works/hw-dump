@@ -88,6 +88,7 @@ executable hw-dump
                         App.Commands.SelectedByBits
                         App.Commands.Slice
                         App.Commands.Words
+                        App.IO
                         Paths_hw_dump
 
 test-suite hw-dump-test
