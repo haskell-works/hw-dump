@@ -24,8 +24,8 @@ import qualified HaskellWorks.Data.ByteString.Lazy   as LBS
 import qualified HaskellWorks.Data.Vector.AsVector64 as DVS
 import qualified System.IO                           as IO
 
-{-# ANN module ("HLint: ignore Redundant do"      :: String) #-}
-{-# ANN module ("HLint: ignore Redundant return"  :: String) #-}
+{- HLINT ignore "Redundant do"        -}
+{- HLINT ignore "Redundant return"    -}
 
 selectedBytes :: BS.ByteString -> BS.ByteString -> B.Builder
 selectedBytes as bs = go (DVS.head (DVS.asVector64 bs)) mempty

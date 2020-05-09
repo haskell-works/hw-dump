@@ -14,8 +14,8 @@ import Options.Applicative            hiding (columns)
 import qualified App.Commands.Options.Type as Z
 import qualified Data.ByteString.Lazy      as LBS
 
-{-# ANN module ("HLint: ignore Redundant do"      :: String) #-}
-{-# ANN module ("HLint: ignore Redundant return"  :: String) #-}
+{- HLINT ignore "Redundant do"        -}
+{- HLINT ignore "Redundant return"    -}
 
 runComplement :: Z.ComplementOptions -> IO ()
 runComplement opts = do

@@ -22,8 +22,8 @@ import qualified HaskellWorks.Data.ByteString      as BS
 import qualified HaskellWorks.Data.ByteString.Lazy as LBS
 import qualified System.IO                         as IO
 
-{-# ANN module ("HLint: ignore Redundant do"      :: String) #-}
-{-# ANN module ("HLint: ignore Redundant return"  :: String) #-}
+{- HLINT ignore "Redundant do"        -}
+{- HLINT ignore "Redundant return"    -}
 
 runSlice :: Z.SliceOptions -> IO ()
 runSlice opts = do
