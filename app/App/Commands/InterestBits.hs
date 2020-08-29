@@ -27,13 +27,11 @@ lazyByteStringChunks :: Int -> LBS.ByteString -> [LBS.ByteString]
 lazyByteStringChunks n bs = case LBS.splitAt (fromIntegral n) bs of
   (lbs, rbs) -> if LBS.length rbs > 0
     then lbs:lazyByteStringChunks n rbs
-    else if LBS.length lbs > 0
-      then [lbs]
-      else []
+    else [lbs | LBS.length lbs > 0]
 
 zap :: [a] ->  [[b]] -> [(a, [b])]
-zap (a:as) (b:bs) = (a,  b):(zap as bs)
-zap (a:as) _      = (a, []):(zap as [])
+zap (a:as) (b:bs) = (a,  b):zap as bs
+zap (a:as) _      = (a, []):zap as []
 zap _      _      = []
 
 isAsciiPrintable :: Char -> Bool
