@@ -8,6 +8,8 @@ import App.Commands.Slice
 import App.Commands.Words
 import Options.Applicative
 
+{- HLINT ignore "Monoid law, left identity" -}
+
 cmdOpts :: Parser (IO ())
 cmdOpts = subparser $ mempty
   <>  cmdBits

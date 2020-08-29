@@ -25,9 +25,7 @@ lazyByteStringChunks :: Int -> LBS.ByteString -> [LBS.ByteString]
 lazyByteStringChunks n bs = case LBS.splitAt (fromIntegral n) bs of
   (lbs, rbs) -> if LBS.length rbs > 0
     then lbs:lazyByteStringChunks n rbs
-    else if LBS.length lbs > 0
-      then [lbs]
-      else []
+    else [lbs | LBS.length lbs > 0]
 
 intersperseN :: a -> Count -> Count -> [a] -> [a]
 intersperseN a n 0 xs     = a:intersperseN a n n xs
